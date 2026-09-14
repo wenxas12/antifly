@@ -21,8 +21,8 @@ punishments:
   ban-after: 4
   # Ban suresi (saniye) -1 = kalici
   ban-duration-seconds: -1
-  kick-reason: "&cFly hilesi tespit edildi. Sunucudan atildin."
-  ban-reason: "&cFly hilesi tespit edildi. Banlandin."
+  kick-reason: "&c%check% hilesi tespit edildi. Sunucudan atildin."
+  ban-reason: "&c%check% hilesi tespit edildi. Banlandin."
 
 join-scan:
   enabled: true

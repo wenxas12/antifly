@@ -42,16 +42,16 @@ public final class PunishManager {
         if (vl >= config.banAfter()) {
             long dur = config.banDurationSeconds();
             Date expires = dur > 0 ? new Date(System.currentTimeMillis() + dur * 1000L) : null;
-            String reason = config.banReason();
+            String reason = config.banReason().replace("%check%", check).replace("%type%", type);
             Bukkit.getScheduler().runTask(plugin, () -> {
                 p.banPlayer(reason, expires, "TranAntiCheat");
             });
-            logManager.log("BAN", p.getName() + "|dur=" + dur + "s");
+            logManager.log("BAN", p.getName() + "|" + check + "|dur=" + dur + "s");
         } else if (vl >= config.kickAfter()) {
             Bukkit.getScheduler().runTask(plugin, () -> {
-                p.kickPlayer(config.kickReason());
+                p.kickPlayer(config.kickReason().replace("%check%", check).replace("%type%", type));
             });
-            logManager.log("KICK", p.getName());
+            logManager.log("KICK", p.getName() + "|" + check);
         }
     }
 

@@ -51,11 +51,11 @@ public final class PluginConfig {
     }
 
     public String kickReason() {
-        return turkuaz(yml.getString("punishments.kick-reason", "&cFLY tespit edildi."));
+        return turkuaz(yml.getString("punishments.kick-reason", "&c%check% hilesi tespit edildi. Sunucudan atildin."));
     }
 
     public String banReason() {
-        return turkuaz(yml.getString("punishments.ban-reason", "&cFLY tespit edildi."));
+        return turkuaz(yml.getString("punishments.ban-reason", "&c%check% hilesi tespit edildi. Banlandin."));
     }
 
     // --- FLY ---

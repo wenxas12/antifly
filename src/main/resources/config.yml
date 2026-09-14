@@ -118,3 +118,9 @@ checks:
     # Paper'daki anti-xray engine acik ise ore maskeleme ek koruma saglar.
     enabled: false
     alert-message: "&e%player% &7| &2XRay &f%type% &7(x%vl%)"
+
+discord:
+  # Tiklaninca acilacak Discord davet linki
+  url: "https://discord.gg/ornek"
+  # Oyuncuya gosterilecek tiklanabilir mesaj
+  message: "&aDiscord'a Katil: &ehttps://discord.gg/ornek"

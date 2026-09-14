@@ -11,6 +11,11 @@ commands:
     aliases: [tac, tranac]
     usage: /<command> <reload|alerts|help>
     permission: trananticheat.admin
+  discord:
+    description: Discord davet linkini goster
+    aliases: [dc]
+    usage: /<command>
+    permission: trananticheat.discord
 
 permissions:
   trananticheat.admin:
@@ -22,3 +27,6 @@ permissions:
   trananticheat.bypass:
     description: Fly kontrolunden muaf tutulur
     default: false
+  trananticheat.discord:
+    description: Discord komutunu kullanabilir
+    default: true

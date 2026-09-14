@@ -195,4 +195,13 @@ public final class PluginConfig {
     public String xrayAlertMessage() {
         return yml.getString("checks.xray.alert-message", "&e%player% &7| &2XRay &f%t% &7(x%vl%)");
     }
+
+    // --- DISCORD ---
+    public String discordUrl() {
+        return yml.getString("discord.url", "");
+    }
+
+    public String discordMessage() {
+        return turkuaz(yml.getString("discord.message", "&aDiscord'a Katil: &ehttps://discord.gg/ornek"));
+    }
 }

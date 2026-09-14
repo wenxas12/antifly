@@ -2,6 +2,7 @@ package com.trananticheat;
 
 import com.trananticheat.check.CombatCheck;
 import com.trananticheat.check.FlyCheck;
+import com.trananticheat.command.DiscordCommand;
 import com.trananticheat.command.TranAntiCheatCommand;
 import com.trananticheat.config.PluginConfig;
 import com.trananticheat.data.PlayerData;
@@ -39,6 +40,11 @@ public final class TranAntiCheat extends JavaPlugin {
         if (getCommand("trananticheat") != null) {
             getCommand("trananticheat").setExecutor(command);
             getCommand("trananticheat").setTabCompleter(command);
+        }
+
+        DiscordCommand discordCommand = new DiscordCommand(pluginConfig);
+        if (getCommand("discord") != null) {
+            getCommand("discord").setExecutor(discordCommand);
         }
 
         getServer().getPluginManager().registerEvents(playerListener, this);

@@ -1,6 +1,6 @@
 name: TranAntiCheat
 version: 1.0.0
-api-version: 1.21
+api-version: 1.20
 main: com.trananticheat.TranAntiCheat
 author: wenxas
 description: FLY-ONLY PvP anti-cheat (gamemode/Essentials fly ve elytra haric)

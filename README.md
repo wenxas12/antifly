@@ -1,6 +1,6 @@
 # TranAntiCheat
 
-PvP sunuculari icin FLY-only anti-cheat plugin'i. Paper 1.21.x uyumlu.
+PvP sunuculari icin FLY-only anti-cheat plugin'i. Paper 1.20.1 ve 1.21.x uyumlu.
 
 ## Ozellikler
 
@@ -87,4 +87,4 @@ mvn package
 ```
 
 - Yapimci: **wenxas**
-- Uyumluluk: Paper 1.21.x / Java 21
+- Uyumluluk: Paper 1.20.1 / 1.21.x / Java 17+

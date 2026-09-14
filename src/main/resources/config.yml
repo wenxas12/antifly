@@ -1,0 +1,83 @@
+# TranAntiCheat - FLY-ONLY | PvP sunuculari icin
+# Yapimci: wenxas | Uyumluluk: Paper 1.21.x
+#
+# NOT: Essentials /fly (gamemode fly) ve elytra kullanicilari Otomatik haric tutulur.
+#      Yaratıcı/gezici mod, su, merdiven, levitasyon ve araç kullanicilari da istisnadır.
+
+messages:
+  prefix: "&8[&cTranAntiCheat&8] &r"
+  no-permission: "&cBunu yapmak icin yetkin yok."
+  unknown-player: "&cOyuncu cevrimici degil."
+  reloaded: "&aConfig yeniden yuklendi."
+  no-alerts: "&7Alert alimi kapali."
+  joined-alerts: "&aAlert alimi acik."
+
+punishments:
+  # Kac ihlalden sonra alert
+  alert-after: 1
+  # Kac ihlalden sonra kick
+  kick-after: 3
+  # Kac ihlalden sonra ban
+  ban-after: 4
+  # Ban suresi (saniye) -1 = kalici
+  ban-duration-seconds: -1
+  kick-reason: "&cFly hilesi tespit edildi. Sunucudan atildin."
+  ban-reason: "&cFly hilesi tespit edildi. Banlandin."
+
+join-scan:
+  enabled: true
+  kick-message: "&cHileli istemci tespit edildi."
+  # Girişte log gecmisi analizi (otomatik ban esigi)
+  auto-ban-on-join-log: 20
+  # Log-kayitlari hangi saat araliginda sayilir
+  log-window-hours: 24
+  # Bu istemci markalari (client brand) girişte engellenir
+  blocked-clients:
+    - thunder
+    - meteor
+    - doomsday
+    - wurst
+    - impact
+    - liquidbounce
+    - sigma
+    - saint
+    - kami
+    - future
+    - aristois
+    - baritone
+    - salhack
+    - phobos
+    - rusherhack
+    - nightmare
+    - skeleton
+    - perch
+    - atmosphere
+    - tranz
+  blocked-modules:
+    - "AntiKillaura"
+    - "Killaura"
+    - "AutoTotem"
+    - "Scaffold"
+    - "NoFall"
+
+checks:
+  fly:
+    # FLY tespiti acik/kapali
+    enabled: true
+    # Dikey yukselis ust siniri (blok/tick). Normal ziplama baslangici ~0.42'dir
+    max-vertical-ascend: 0.45
+    # Yukari-ziplama esigi (ust uste kac tick)
+    vertical-ascend-ticks: 6
+    # Hover (havada askida kalma) icin ust uste kac tick
+    hover-ticks: 24
+    # Hover sirasinda kabul edilen maks dikey delta (blok/tick)
+    hover-max-dy: 0.03
+    # Hover sirasinda kabul edilen maks yatay hareket
+    hover-max-horizontal: 0.30
+    # Ihlal azalma (decay) suresi (saniye)
+    decay-seconds: 90.0
+    # Havada ust uste kalinabilecek maks tick (1 sn = 20 tick). Asilirsa AirTime flag
+    # NOT: normal du$us de sayilir, bu yuzden yuksek deger tut (oeme ~6-10 sn)
+    max-air-ticks: 120
+    # Alert mesaj formati
+    alert-message: "&e%player% &7| &6FLY &f%type% &7(x%vl%)"

@@ -1,0 +1,24 @@
+name: TranAntiCheat
+version: 1.0.0
+api-version: 1.21
+main: com.trananticheat.TranAntiCheat
+author: wenxas
+description: FLY-ONLY PvP anti-cheat (gamemode/Essentials fly ve elytra haric)
+
+commands:
+  trananticheat:
+    description: TranAntiCheat yonetim komutu
+    aliases: [tac, tranac]
+    usage: /<command> <reload|alerts|help>
+    permission: trananticheat.admin
+
+permissions:
+  trananticheat.admin:
+    description: Yonetici komutlari
+    default: op
+  trananticheat.alert:
+    description: Alert bildirimleri gorme
+    default: op
+  trananticheat.bypass:
+    description: Fly kontrolunden muaf tutulur
+    default: false

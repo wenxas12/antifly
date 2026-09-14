@@ -1,0 +1,28 @@
+# Build artifacts
+build/
+target/
+*.class
+
+# Sunucu verisi (dunya, oyuncu verileri, loglar, plugins) asla yuklenmesin
+server/
+
+# Loglar
+*.log
+logs/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Gecici test dosyalari
+_tmp
+_temp
+*.tmp

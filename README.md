@@ -22,6 +22,32 @@ PvP sunuculari icin FLY-only anti-cheat plugin'i. Paper 1.21.x uyumlu.
 - **Detayli loglama** (`plugins/TranAntiCheat/logs/`)
 - Muafiyet: Essentials/fly, elytra, yaratici/gezici mod, su, merdiven, levitasyon ve arac icin
 
+## Fly tespiti nasil calisir
+
+Fly check her tick (saniyede 20 kez) calisir. Once muafiyet kontrol eder; oyuncu uctigunda,
+elytra kullandiginda, aractayken, creative/spectator'dayken veya levitation etkisindeyken kendi
+basina yakalanmaz. Su icinde, yuzerken ya da merdiven/vine/scaffold icindeyken de sayilmaz.
+
+Oyuncu havadayken uc alt kontrol paralel calisir:
+
+| Alt-kontrol | Yakalanma kosulu |
+|---|---|
+| **Ascend** | Yukari cikis 0.45 blok/tick ustu ve 6 tick ustuste |
+| **Hover** | Hic dusmeden havada asili kalma, 24 tick (1.2 sn) |
+| **AirTime** | Toplam havada kalma 120 tick (6 sn) |
+
+Bir kontrol yakalandiginda 1 flag atilir ve ceza sistemi devreye girer. Tek fly kullanan bir
+oyuncunun carpan kadersiz:
+
+```
+vl 1-2 → alert (yetkililere bildirim, ceza yok)
+vl 3   → kick ("Fly hilesi tespit edildi. Sunucudan atildin.")
+vl 4   → kalici ban
+```
+
+Sayaç artar ve azalmaz: 4 ihlale ulasan oyuncu kaliciolarak banlanir. Yani uctugun her
+yakalanma sayilmaya devam eder.
+
 ## Kurulum
 
 1. `TranAntiCheat-1.0.0.jar` dosyasini `plugins/` klasorune kopyala

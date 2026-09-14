@@ -13,9 +13,8 @@ PvP sunuculari icin FLY-only anti-cheat plugin'i. Paper 1.20.1 ve 1.21.x uyumlu.
   - Aim (AimAssist): tick basina asiri yaw donusu (instant-turn / hizli nişan alma)
   - TriggerBot: cok kisa aralikli surekli saldiri serileri (FastAttack) — varsayilan kapali
 - **Ceza sistemi (kademeli)**
-  1. vl 1-2: Yetkililere alert bildirimi
-  2. vl 3: Kick (uyari kicki)
-  3. vl 4+: Kalici ban
+  1. vl 1-3: Yetkililere alert bildirimi
+  2. vl 4: Kalici ban (kick asamasi atlanir)
 - **Giris taramasi (join-scan)**
   - Bilinen hileli istemci markalari (brand) engellenir — killaura/triggerbot/aimassist iceren client'lar dahil
   - Gecmis Flag loglarina gore otomatik islem
@@ -68,7 +67,7 @@ Aliases: `/tac`, `/tranac`
 
 Anahtar alanlar:
 
-- `punishments.kick-after` — kac ihlalden sonra kick (varsayilan 3)
+- `punishments.kick-after` — kac ihlalden sonra kick (varsayilan 4; 4. ihlalde ban oncelikli)
 - `punishments.ban-after` — kac ihlalden sonra ban (varsayilan 4)
 - `punishments.ban-duration-seconds` — ban suresi (-1 = kalici)
 - `checks.fly.max-air-ticks` — havada kalinabilecek maks tick (varsayilan 120)

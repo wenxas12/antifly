@@ -15,8 +15,8 @@ messages:
 punishments:
   # Kac ihlalden sonra alert
   alert-after: 1
-  # Kac ihlalden sonra kick
-  kick-after: 3
+  # Kac ihlalden sonra kick (4. ihlalde ban once gelir, kick atlanir)
+  kick-after: 4
   # Kac ihlalden sonra ban
   ban-after: 4
   # Ban suresi (saniye) -1 = kalici

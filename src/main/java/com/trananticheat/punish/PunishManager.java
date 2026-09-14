@@ -29,7 +29,7 @@ public final class PunishManager {
         vc.violations++;
         vc.lastViolation = System.currentTimeMillis();
         int vl = vc.violations;
-        String msg = config.flyAlertMessage()
+        String msg = alertMessageFor(check)
                 .replace("%player%", p.getName())
                 .replace("%check%", check)
                 .replace("%type%", type)
@@ -75,6 +75,17 @@ public final class PunishManager {
                 e.getValue().violations = Math.max(0, e.getValue().violations - drop);
             }
         }
+    }
+
+    private String alertMessageFor(String check) {
+        return switch (check) {
+            case "Fly" -> config.flyAlertMessage();
+            case "KillAura" -> config.killAuraAlertMessage();
+            case "Aim" -> config.aimAlertMessage();
+            case "TriggerBot" -> config.triggerBotAlertMessage();
+            case "XRay" -> config.xrayAlertMessage();
+            default -> config.flyAlertMessage();
+        };
     }
 
     private void broadcast(String msg) {

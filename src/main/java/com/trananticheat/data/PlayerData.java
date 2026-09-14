@@ -26,6 +26,13 @@ public final class PlayerData {
 
     private boolean joinScanned;
 
+    private float lastYaw = Float.NaN;
+    private int yawExcessTicks;
+
+    private long lastAttackTime;
+    private UUID lastAttackTarget;
+    private int fastAttackCount;
+
     public PlayerData(UUID uuid) {
         this.uuid = uuid;
     }
@@ -128,5 +135,45 @@ public final class PlayerData {
 
     public void joinScanned(boolean b) {
         this.joinScanned = b;
+    }
+
+    public float lastYaw() {
+        return lastYaw;
+    }
+
+    public void lastYaw(float v) {
+        this.lastYaw = v;
+    }
+
+    public int yawExcessTicks() {
+        return yawExcessTicks;
+    }
+
+    public void yawExcessTicks(int v) {
+        this.yawExcessTicks = v;
+    }
+
+    public long lastAttackTime() {
+        return lastAttackTime;
+    }
+
+    public void lastAttackTime(long v) {
+        this.lastAttackTime = v;
+    }
+
+    public UUID lastAttackTarget() {
+        return lastAttackTarget;
+    }
+
+    public void lastAttackTarget(UUID v) {
+        this.lastAttackTarget = v;
+    }
+
+    public int fastAttackCount() {
+        return fastAttackCount;
+    }
+
+    public void fastAttackCount(int v) {
+        this.fastAttackCount = v;
     }
 }

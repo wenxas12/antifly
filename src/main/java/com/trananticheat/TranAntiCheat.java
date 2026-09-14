@@ -1,5 +1,6 @@
 package com.trananticheat;
 
+import com.trananticheat.check.CombatCheck;
 import com.trananticheat.check.FlyCheck;
 import com.trananticheat.command.TranAntiCheatCommand;
 import com.trananticheat.config.PluginConfig;
@@ -25,6 +26,7 @@ public final class TranAntiCheat extends JavaPlugin {
     private BrandDetector brandDetector;
     private ModuleDetector moduleDetector;
     private FlyCheck flyCheck;
+    private CombatCheck combatCheck;
     private PlayerListener playerListener;
 
     private final Map<UUID, PlayerData> dataMap = new ConcurrentHashMap<>();
@@ -40,6 +42,7 @@ public final class TranAntiCheat extends JavaPlugin {
         }
 
         getServer().getPluginManager().registerEvents(playerListener, this);
+        getServer().getPluginManager().registerEvents(combatCheck, this);
 
         getServer().getScheduler().runTaskTimer(this, () -> {
             long now = System.currentTimeMillis();
@@ -47,10 +50,12 @@ public final class TranAntiCheat extends JavaPlugin {
                 PlayerData d = dataMap.computeIfAbsent(p.getUniqueId(), k -> new PlayerData(k));
                 d.player(p);
                 flyCheck.sample(p, d, now);
+                combatCheck.sample(p, d);
             }
         }, 1L, 1L);
 
-        getLogger().info("TranAntiCheat v" + getDescription().getVersion() + " aktif | FLY tespiti acik");
+        getLogger().info("TranAntiCheat v" + getDescription().getVersion()
+                + " aktif | FLY + KillAura + Aim + TriggerBot tespitleri acik");
     }
 
     public void reloadCore() {
@@ -63,6 +68,7 @@ public final class TranAntiCheat extends JavaPlugin {
         this.brandDetector = new BrandDetector();
         this.moduleDetector = new ModuleDetector(pluginConfig);
         this.flyCheck = new FlyCheck(this, pluginConfig, punishManager);
+        this.combatCheck = new CombatCheck(this, pluginConfig, punishManager);
         this.playerListener = new PlayerListener(this, dataMap, brandDetector, moduleDetector, punishManager);
     }
 

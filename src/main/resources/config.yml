@@ -77,7 +77,44 @@ checks:
     # Ihlal azalma (decay) suresi (saniye)
     decay-seconds: 90.0
     # Havada ust uste kalinabilecek maks tick (1 sn = 20 tick). Asilirsa AirTime flag
-    # NOT: normal du$us de sayilir, bu yuzden yuksek deger tut (oeme ~6-10 sn)
+    # NOT: normal dusus de sayilir, bu yuzden yuksek deger tut (ornek 6-10 sn)
     max-air-ticks: 120
     # Alert mesaj formati
     alert-message: "&e%player% &7| &6FLY &f%type% &7(x%vl%)"
+
+  killaura:
+    # KillAura tespiti (cok hizli hedef degistirme + hedefe bakmadan vurma + uzak vurus)
+    enabled: true
+    # Ayni iki hedef arasindaki saldiri gecikmesi BUNUN ALTINDAYSA MultiAura (ms)
+    multi-aura-ms: 400
+    # Hedefe bakma acisi bu degerin (derece) UZERINDE ise Angle (hedefe bakmadan vurma)
+    max-angle: 85.0
+    # Hedef merkezinden bu mesafeden UZAK saldiri Reach sayilir (blok)
+    max-reach: 4.5
+    # By-pass izni olanlar gormezden gelinir (trananticheat.bypass)
+    alert-message: "&e%player% &7| &4KillAura &f%type% &7(x%vl%)"
+
+  aim:
+    # AimAssist / instant-turn tespiti. Tick basina asiri yaw degisimi + ust uste tekrar
+    enabled: true
+    # Tick basina izin verilen maks yaw degisimi (derece)
+    max-yaw-per-tick: 60.0
+    # Bu esik ust uste kac tick devam ederse flag (insan flicki 1-2 tick surer)
+    required-ticks: 4
+    alert-message: "&e%player% &7| &5Aim &f%type% &7(x%vl%)"
+
+  triggerbot:
+    # TriggerBot tespiti: cok kisa aralikli, surekli seri saldiri
+    enabled: false
+    # Art arda iki saldiri arasi BU ms'den kisa ise seri sayilir
+    max-attack-delay-ms: 120
+    # Kac seri saldiridan sonra flag
+    required-hits: 3
+    alert-message: "&e%player% &7| &cTriggerBot &f%type% &7(x%vl%)"
+
+  xray:
+    # NOT: X-Ray sunucu tarafinda %100 davranisal tespit edilemez.
+    # Asil koruma join-scan blocked-clients listesidir (asagida).
+    # Paper'daki anti-xray engine acik ise ore maskeleme ek koruma saglar.
+    enabled: false
+    alert-message: "&e%player% &7| &2XRay &f%type% &7(x%vl%)"

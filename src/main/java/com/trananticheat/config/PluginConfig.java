@@ -92,7 +92,7 @@ public final class PluginConfig {
     }
 
     public String flyAlertMessage() {
-        return yml.getString("checks.fly.alert-message", "&e%p% &7| &6FLY &f%type% &7(x%vl%)");
+        return yml.getString("checks.fly.alert-message", "&e%player% &7| &6FLY &f%type% &7(x%vl%)");
     }
 
     // --- NUFUZ AYARLARI ---
@@ -130,5 +130,69 @@ public final class PluginConfig {
 
     public List<String> blockedModules() {
         return yml.getStringList("join-scan.blocked-modules");
+    }
+
+    // --- KILLAURA ---
+    public boolean killAuraEnabled() {
+        return yml.getBoolean("checks.killaura.enabled", true);
+    }
+
+    public long killAuraMultiAuraMs() {
+        return yml.getLong("checks.killaura.multi-aura-ms", 400L);
+    }
+
+    public double killAuraMaxAngle() {
+        return yml.getDouble("checks.killaura.max-angle", 85.0);
+    }
+
+    public double killAuraMaxReach() {
+        return yml.getDouble("checks.killaura.max-reach", 4.5);
+    }
+
+    public String killAuraAlertMessage() {
+        return yml.getString("checks.killaura.alert-message", "&e%player% &7| &4KillAura &f%t% &7(x%vl%)");
+    }
+
+    // --- AIM (AimAssist / instant-turn) ---
+    public boolean aimEnabled() {
+        return yml.getBoolean("checks.aim.enabled", true);
+    }
+
+    public double aimMaxYawPerTick() {
+        return yml.getDouble("checks.aim.max-yaw-per-tick", 60.0);
+    }
+
+    public int aimRequiredTicks() {
+        return yml.getInt("checks.aim.required-ticks", 4);
+    }
+
+    public String aimAlertMessage() {
+        return yml.getString("checks.aim.alert-message", "&e%player% &7| &5Aim &f%t% &7(x%vl%)");
+    }
+
+    // --- TRIGGERBOT ---
+    public boolean triggerBotEnabled() {
+        return yml.getBoolean("checks.triggerbot.enabled", false);
+    }
+
+    public long triggerBotMaxDelayMs() {
+        return yml.getLong("checks.triggerbot.max-attack-delay-ms", 120L);
+    }
+
+    public int triggerBotRequiredHits() {
+        return yml.getInt("checks.triggerbot.required-hits", 3);
+    }
+
+    public String triggerBotAlertMessage() {
+        return yml.getString("checks.triggerbot.alert-message", "&e%player% &7| &cTriggerBot &f%t% &7(x%vl%)");
+    }
+
+    // --- XRAY ---
+    public boolean xrayEnabled() {
+        return yml.getBoolean("checks.xray.enabled", false);
+    }
+
+    public String xrayAlertMessage() {
+        return yml.getString("checks.xray.alert-message", "&e%player% &7| &2XRay &f%t% &7(x%vl%)");
     }
 }
